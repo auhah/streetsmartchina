@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="Sample mobile wallet readiness checklist">
+  <rect width="960" height="540" fill="#edf4f0"/>
+  <rect x="280" y="48" width="400" height="444" rx="32" fill="#17201d"/>
+  <rect x="306" y="92" width="348" height="356" rx="8" fill="#ffffff"/>
+  <text x="338" y="148" fill="#c7352c" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800">Wallet readiness</text>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#17201d">
+    <text x="380" y="220">Card linked</text>
+    <text x="380" y="282">Passport checked</text>
+    <text x="380" y="344">Backup ready</text>
+  </g>
+  <g fill="none" stroke="#007c7a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M336 210l16 16 28-34"/>
+    <path d="M336 272l16 16 28-34"/>
+    <path d="M336 334l16 16 28-34"/>
+  </g>
+  <text x="322" y="422" fill="#59655f" font-family="Arial, Helvetica, sans-serif" font-size="18">Placeholder screenshot slot</text>
+</svg>
