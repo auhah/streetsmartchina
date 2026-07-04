@@ -1,0 +1,77 @@
+# Reference only: keep this under ci-reference/ until the GitHub remote and
+# Cloudflare Pages project for streetsmartchina exist. Do not copy it into
+# .github/workflows/ before those release prerequisites are ready.
+
+name: Release streetsmartchina to Cloudflare Pages
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: streetsmartchina-cloudflare-pages-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ vars.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Verify tag is on main
+        if: github.event_name == 'push'
+        run: |
+          git fetch --no-tags origin main
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+
+      - name: Verify manual run is on main
+        if: github.event_name == 'workflow_dispatch'
+        run: test "$GITHUB_REF" = "refs/heads/main"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Test
+        run: npm test
+
+      - name: Build static export
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy out --project-name=streetsmartchina --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          packageManager: npm
+
+      - name: Notify IndexNow
+        continue-on-error: true
+        env:
+          INDEXNOW_HOST: streetsmartchina.com
+          INDEXNOW_KEY: streetsmartchina-indexnow-key-placeholder
+          INDEXNOW_SITEMAP_URL: https://streetsmartchina.com/sitemap.xml
+        run: |
+          sleep 90
+          npm run indexnow:submit

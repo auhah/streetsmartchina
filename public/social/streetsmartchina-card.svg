@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="StreetSmartChina social preview card">
+  <rect width="1200" height="630" fill="#f7f8f4"/>
+  <rect x="72" y="72" width="1056" height="486" rx="8" fill="#ffffff" stroke="#d6ded8" stroke-width="3"/>
+  <path d="M140 168h420v26H140zM140 219h700v36H140zM140 277h610v36H140z" fill="#17201d"/>
+  <path d="M140 376h180v20H140zM140 420h250v20H140zM140 464h210v20H140z" fill="#007c7a"/>
+  <g transform="translate(818 156)">
+    <rect width="220" height="318" rx="8" fill="#edf4f0" stroke="#d6ded8" stroke-width="3"/>
+    <path d="M40 58h140v24H40zM40 112h140v18H40zM40 154h108v18H40zM40 196h140v18H40zM40 238h96v18H40z" fill="#17201d"/>
+    <circle cx="172" cy="274" r="22" fill="#c7352c"/>
+  </g>
+  <text x="140" y="135" fill="#c7352c" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800">StreetSmartChina</text>
+  <text x="140" y="540" fill="#59655f" font-family="Arial, Helvetica, sans-serif" font-size="30">A DIY traveler's operator manual for China</text>
+</svg>

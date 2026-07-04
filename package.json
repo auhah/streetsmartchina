@@ -1,0 +1,42 @@
+{
+  "name": "streetsmartchina",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "prebuild": "npm run check:content",
+    "build": "next build",
+    "start": "node scripts/serve-static-export.mjs",
+    "preview:static": "node scripts/serve-static-export.mjs",
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "check:content": "vitest run src/content/content-loader.test.ts",
+    "check:seo-launch": "node scripts/seo/check-sitemap-canonical.mjs",
+    "gsc": "node scripts/seo/gsc.mjs",
+    "gsc:auth": "node scripts/seo/gsc.mjs auth",
+    "gsc:inspect": "node scripts/seo/gsc.mjs inspect",
+    "gsc:performance": "node scripts/seo/gsc.mjs performance",
+    "gsc:sitemaps": "node scripts/seo/gsc.mjs sitemaps",
+    "gsc:sites": "node scripts/seo/gsc.mjs sites",
+    "gsc:summary": "node scripts/seo/gsc.mjs summary",
+    "indexnow:submit": "node scripts/seo/indexnow-submit.mjs"
+  },
+  "dependencies": {
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "3.3.5",
+    "@types/node": "25.9.1",
+    "@types/react": "19.2.15",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.6",
+    "typescript": "6.0.3",
+    "vitest": "4.1.7",
+    "yaml": "2.9.0"
+  }
+}
