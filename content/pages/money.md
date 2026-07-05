@@ -1,6 +1,6 @@
 ---
-title: "How to Pay in China as a Foreigner: Alipay, WeChat, Cards & Cash"
-description: "How to pay in China as a foreigner: Alipay, WeChat Pay, cards, cash, fees, limits, and backup tips."
+title: "How to Pay in China as a Foreigner: Alipay, WeChat, Cards, Apple Pay & Cash"
+description: "How to pay in China as a foreigner: Alipay, WeChat Pay, cards, Apple Pay, cash, fees, limits, and backup tips."
 h1: "How to Pay in China as a Foreigner"
 cluster: "money"
 lastVerified: "2026-07-04"
@@ -15,13 +15,17 @@ sources:
     url: "https://mothership.sg/"
   - label: "CNBC report dated 2024-03-08 on mobile payments for foreign visitors"
     url: "https://www.cnbc.com/"
+  - label: "Apple Support: Add a transit card to Apple Wallet"
+    url: "https://support.apple.com/en-us/108373"
+  - label: "Wise guide to Visa and Mastercard in China"
+    url: "https://wise.com/"
 faq:
   - q: "Can I use my Visa or Mastercard directly in China?"
     a: "Direct foreign-card POS payment is rare and mainly appears at airports and high-end hotels. For most budget travel, bind an international card in Alipay or WeChat Pay."
   - q: "Do I still need cash in China in 2026?"
     a: "Yes. Carry a small cash fallback. PBOC/NDRC/NAFR rules announced on 2025-12-19 and effective from 2026-02-01 require offline merchants to accept cash."
   - q: "Does Apple Pay work in China?"
-    a: "For foreign tourists, assume Apple Pay is basically not usable because it runs through the UnionPay channel in China."
+    a: "For foreign tourists, assume Apple Pay is not the main route because it runs through the UnionPay channel in China. Use the Apple Pay guide for the narrow exceptions."
   - q: "What is the e-CNY tourist wallet?"
     a: "The e-CNY tourist wallet exists, but acceptance is narrow. Treat it as secondary to Alipay, WeChat Pay, and cash."
   # TODO(verify): Confirm a practical cash fallback amount before publishing a numeric recommendation.
@@ -35,14 +39,15 @@ faq:
 
 Install Alipay, bind an international card, and carry a small amount of cash as a fallback. That setup covers 90%+ of payment situations, while cash protects you when a QR payment or card route fails.
 
-Start with [Alipay setup](/money/alipay/), then add [WeChat Pay](/money/wechat-pay/) if you want a second wallet. Keep [cash](/money/cash/) for fallback situations and read the [foreign card guide](/money/cards/) before relying on direct card payment.
+Start with [Alipay setup](/money/alipay/), then add [WeChat Pay](/money/wechat-pay/) if you want a second wallet. Keep [cash](/money/cash/) for fallback situations, read the [foreign card guide](/money/cards/) before relying on direct card payment, and check [Apple Pay in China](/money/apple-pay/) before assuming iPhone tap-to-pay will work.
 
-## Your four options, ranked
+## Your payment stack, ranked
 
 - Alipay: best first setup for a foreign visitor using an international card. Use the [Alipay for foreigners guide](/money/alipay/).
-- WeChat Pay: useful as a second wallet. Keep the [WeChat Pay guide](/money/wechat-pay/) in your plan even if it ships later.
+- WeChat Pay: useful as a second wallet. Keep the [WeChat Pay guide](/money/wechat-pay/) in your plan.
 - Cash: still worth carrying in small amounts. Read the [cash fallback guide](/money/cash/).
 - Cards: direct POS payment with foreign cards is rare outside airports and high-end hotels. Use the [foreign cards guide](/money/cards/) as a backup check, not your main plan.
+- Apple Pay: not a main China payment route for foreign tourists. Read the [Apple Pay guide](/money/apple-pay/) before relying on it.
 
 Before payment setup, make sure you can get online through the [connectivity guides](/connect/). For rides, keep the [DiDi payment guide](/didi-in-china/) on your list. Add payment setup to the [China travel checklist](/china-travel-checklist/).
 
@@ -54,7 +59,7 @@ A 2025-12-19 joint PBOC/NDRC/NAFR announcement set a cash rule effective from 20
 
 ## What does not work
 
-- Apple Pay runs through the UnionPay channel in China, so foreign tourists should treat it as basically unavailable.
+- Apple Pay runs through the UnionPay channel in China, so foreign tourists should read the [Apple Pay guide](/money/apple-pay/) and treat it as a narrow exception path.
 - Direct foreign-card POS acceptance is rare and mainly appears at airports and high-end hotels.
 - Google Pay is not usable for this payment setup.
 - The e-CNY tourist wallet exists, but acceptance is narrow.
