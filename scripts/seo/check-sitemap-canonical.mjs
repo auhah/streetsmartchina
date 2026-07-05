@@ -104,26 +104,26 @@ async function checkSitemapEntries(baseUrl, errors) {
 
 async function checkSpecialRoutes(baseUrl, errors) {
   const queryUrl = new URL(
-    "/money/sample-guide/?utm_source=seo-check",
+    "/money/alipay/?utm_source=seo-check",
     baseUrl,
   ).toString();
   const queryResponse = await fetchWithoutRedirect(queryUrl);
 
   if (queryResponse.status !== 200) {
     errors.push(
-      `Expected sample guide query URL to return 200, got ${queryResponse.status}.`,
+      `Expected Alipay guide query URL to return 200, got ${queryResponse.status}.`,
     );
   } else {
     const canonical = extractCanonical(await queryResponse.text());
-    const expected = productionUrlForPath("/money/sample-guide/");
+    const expected = productionUrlForPath("/money/alipay/");
     if (!canonical) {
-      errors.push("Sample guide query URL is missing a canonical link.");
+      errors.push("Alipay guide query URL is missing a canonical link.");
       return;
     }
     if (
       normalizeComparableUrl(canonical) !== normalizeComparableUrl(expected)
     ) {
-      errors.push(`Sample guide query canonical mismatch: ${canonical}.`);
+      errors.push(`Alipay guide query canonical mismatch: ${canonical}.`);
     }
   }
 

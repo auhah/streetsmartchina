@@ -60,9 +60,12 @@ export type Guide = GuideFrontmatter & {
 export type ContentPageSlug = "home" | Cluster;
 
 export type ContentPageFrontmatter = {
+  cluster?: Cluster;
   description: string;
+  faq: FaqItem[];
   h1: string;
   lastVerified: DateOnly;
+  sources: OfficialSource[];
   title: string;
 };
 
@@ -299,6 +302,30 @@ function validateTroubleshooting(
   });
 }
 
+function validateOptionalSources(
+  record: Record<string, unknown>,
+  source: string,
+): OfficialSource[] {
+  const value = record.sources;
+  if (value === undefined) {
+    return [];
+  }
+
+  return validateSources(readOptionalArray(record, "sources", source), source);
+}
+
+function validateOptionalFaq(
+  record: Record<string, unknown>,
+  source: string,
+): FaqItem[] {
+  const value = record.faq;
+  if (value === undefined) {
+    return [];
+  }
+
+  return validateFaq(readOptionalArray(record, "faq", source), source);
+}
+
 export function validateGuideFrontmatter(
   frontmatter: Record<string, unknown>,
   source: string,
@@ -330,10 +357,26 @@ export function validateContentPageFrontmatter(
   frontmatter: Record<string, unknown>,
   source: string,
 ): ContentPageFrontmatter {
+  const rawCluster = frontmatter.cluster;
+  let cluster: Cluster | undefined;
+
+  if (rawCluster !== undefined) {
+    if (typeof rawCluster !== "string" || !isCluster(rawCluster)) {
+      throw new Error(
+        `${formatSource(source, "cluster")} must be one of ${CLUSTERS.join(", ")}`,
+      );
+    }
+
+    cluster = rawCluster;
+  }
+
   return {
+    ...(cluster ? { cluster } : {}),
     description: requireString(frontmatter, "description", source),
+    faq: validateOptionalFaq(frontmatter, source),
     h1: requireString(frontmatter, "h1", source),
     lastVerified: requireDateOnly(frontmatter, "lastVerified", source),
+    sources: validateOptionalSources(frontmatter, source),
     title: requireString(frontmatter, "title", source),
   };
 }
@@ -403,6 +446,12 @@ export function getContentPage(slug: ContentPageSlug): ContentPage {
       path: "/",
       slug,
     };
+  }
+
+  if (frontmatter.cluster !== undefined && frontmatter.cluster !== slug) {
+    throw new Error(
+      `${filePath}: frontmatter.cluster must match content page slug "${slug}"`,
+    );
   }
 
   return {

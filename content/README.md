@@ -14,9 +14,12 @@ Required guide frontmatter fields:
 - `sources`: list of `{ label, url }`
 - `faq`: list of `{ q, a }`
 
-Optional fields used by the sample page:
+Optional fields used by production guides:
 
 - `steps`: list of `{ title, body, image?: { src, alt, caption } }`
 - `troubleshooting`: list of `{ problem, cause, fix }`
+
+Cluster hub pages live in `content/pages/<cluster>.md`. They may include
+`cluster`, `sources`, and `faq` when the hub needs source blocks and FAQ schema.
 
 Run `npm run check:content` before opening a content PR.

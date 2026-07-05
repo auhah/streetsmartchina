@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { FaqSection } from "@/components/FaqSection";
 import { LastVerifiedBadge } from "@/components/LastVerifiedBadge";
 import { MarkdownBody } from "@/components/MarkdownBody";
+import { OfficialSources } from "@/components/OfficialSources";
 import { CLUSTERS, getClusterConfig, isCluster } from "@/config/site";
 import {
   type ClusterContentPage,
@@ -62,6 +64,8 @@ export default async function ClusterPage({ params }: ClusterPageProps) {
       </div>
 
       <MarkdownBody markdown={page.body} />
+      {page.faq.length > 0 ? <FaqSection faq={page.faq} /> : null}
+      {page.sources.length > 0 ? <OfficialSources sources={page.sources} /> : null}
 
       <section aria-labelledby="cluster-guides-heading" className="section">
         <div className="section-heading">

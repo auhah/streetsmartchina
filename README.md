@@ -29,6 +29,6 @@ Add guide pages under `content/guides/*.md`. The required frontmatter is
 documented in `content/README.md`, and `lastVerified` is required because
 it drives visible freshness badges and sitemap `<lastmod>` dates.
 
-The sample page is published at `/money/sample-guide/`.
+The first production guide is published at `/money/alipay/`.
 
 Managed under `project-base`; see `../projects.yaml`.

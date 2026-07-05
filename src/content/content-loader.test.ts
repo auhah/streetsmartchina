@@ -10,6 +10,7 @@ import {
 describe("content loader", () => {
   it("loads and validates content pages", () => {
     const pages = getAllContentPages();
+    const money = pages.find((page) => page.slug === "money");
 
     expect(pages.map((page) => page.slug)).toEqual([
       "home",
@@ -19,23 +20,30 @@ describe("content loader", () => {
       "trains",
     ]);
     expect(pages.every((page) => page.lastVerified.length === 10)).toBe(true);
+    expect(money).toMatchObject({
+      cluster: "money",
+      path: "/money/",
+      slug: "money",
+    });
+    expect(money?.faq.length).toBeGreaterThan(0);
+    expect(money?.sources.length).toBeGreaterThan(0);
   });
 
-  it("loads sample guide frontmatter and optional deep modules", () => {
+  it("loads Alipay guide frontmatter and optional deep modules", () => {
     const guides = getAllGuides();
-    const sample = getGuideByRoute("money", "sample-guide");
+    const alipay = getGuideByRoute("money", "alipay");
 
     expect(guides).toHaveLength(1);
-    expect(sample).toMatchObject({
+    expect(alipay).toMatchObject({
       cluster: "money",
       lastVerified: "2026-07-04",
-      path: "/money/sample-guide/",
-      slug: "sample-guide",
+      path: "/money/alipay/",
+      slug: "alipay",
     });
-    expect(sample?.sources.length).toBeGreaterThan(0);
-    expect(sample?.faq.length).toBeGreaterThan(0);
-    expect(sample?.steps.length).toBeGreaterThan(0);
-    expect(sample?.troubleshooting.length).toBeGreaterThan(0);
+    expect(alipay?.sources.length).toBeGreaterThan(0);
+    expect(alipay?.faq.length).toBe(6);
+    expect(alipay?.steps.length).toBe(7);
+    expect(alipay?.troubleshooting.length).toBeGreaterThanOrEqual(6);
   });
 
   it("fails when required guide fields are missing", () => {

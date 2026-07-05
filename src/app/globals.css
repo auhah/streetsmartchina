@@ -302,6 +302,13 @@ p {
   color: var(--muted);
 }
 
+.markdown-body a {
+  color: var(--blue);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .markdown-body ul {
   display: grid;
   gap: 8px;
@@ -472,27 +479,33 @@ p {
   background: var(--surface);
 }
 
-.troubleshooting-table {
+.troubleshooting-table,
+.content-table {
   width: 100%;
   min-width: 720px;
   border-collapse: collapse;
 }
 
 .troubleshooting-table th,
-.troubleshooting-table td {
+.troubleshooting-table td,
+.content-table th,
+.content-table td {
   border-bottom: 1px solid var(--line);
   padding: 14px;
   text-align: left;
   vertical-align: top;
 }
 
-.troubleshooting-table thead th {
+.troubleshooting-table thead th,
+.content-table thead th {
   background: var(--surface-muted);
   color: var(--ink);
 }
 
 .troubleshooting-table tbody tr:last-child th,
-.troubleshooting-table tbody tr:last-child td {
+.troubleshooting-table tbody tr:last-child td,
+.content-table tbody tr:last-child th,
+.content-table tbody tr:last-child td {
   border-bottom: 0;
 }
 

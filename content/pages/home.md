@@ -5,7 +5,7 @@ h1: "StreetSmartChina"
 lastVerified: "2026-07-04"
 ---
 
-StreetSmartChina is the operating manual for independent travelers who want to land in China with fewer surprises. The launch scaffold is intentionally small: four cluster hubs and one complete sample guide that shows the content pattern.
+StreetSmartChina is the operating manual for independent travelers who want to land in China with fewer surprises. The launch scaffold is intentionally small: four cluster hubs and one production money guide.
 
 ## Content standard
 

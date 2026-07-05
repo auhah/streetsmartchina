@@ -35,7 +35,7 @@ export default function HomePage() {
               </div>
               <div>
                 <dt>1</dt>
-                <dd>Sample guide ready</dd>
+                <dd>Money guide ready</dd>
               </div>
               <div>
                 <dt>0</dt>
