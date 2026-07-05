@@ -19,7 +19,7 @@ faq:
   - q: "Do I even need a credit card in China?"
     a: "Yes, but not as your daily payment plan. Use mobile payment first, keep cash as fallback, and treat physical cards as useful only in specific internationalized places."
   - q: "Is Visa or Mastercard better in China?"
-    a: "The brief names both Visa and Mastercard for foreign-card acceptance. Bring two cards from different networks instead of relying on one issuer or one network."
+    a: "Do not choose just one network. Bring two cards from different networks instead of relying on one issuer or one network."
   - q: "Why was my card declined despite the Visa logo?"
     a: "A logo does not guarantee a foreign-issued card will work. Some terminals or merchant setups support China-issued cards, UnionPay, Alipay, or WeChat but not your foreign-issued Visa or Mastercard."
   - q: "Can I use my foreign card at ATMs?"
