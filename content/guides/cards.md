@@ -5,18 +5,16 @@ h1: "Foreign Cards in China: The Acceptance Map"
 cluster: "money"
 lastVerified: "2026-07-04"
 sources:
-  - label: "Wise guide to Visa and Mastercard in China"
-    url: "https://wise.com/"
+  - label: "Wise guide to Visa and Mastercard in China (incl. Shanghai Metro tap-to-pay)"
+    url: "https://wise.com/en-cn/blog/visa-and-mastercard-in-china"
   - label: "Chase education page on credit cards in China"
-    url: "https://www.chase.com/"
-  - label: "People's Bank of China foreign-card acceptance guidance reported in media"
+    url: "https://www.chase.com/personal/credit-cards/education/basics/can-i-use-a-credit-card-in-china"
+  - label: "People's Bank of China foreign-card acceptance guidance (as reported in media)"
     url: "https://www.pbc.gov.cn/"
-  - label: "Wise Shanghai Metro foreign-card tap-to-pay coverage"
-    url: "https://wise.com/"
-  - label: "MyChinaGuide Shanghai Metro foreign-card tap-to-pay coverage"
-    url: "https://www.mychinaguide.com/"
+  - label: "MyChinaGuide: can you use credit cards in China (incl. Shanghai Metro tap-to-pay)"
+    url: "https://mychina.guide/blog/can-you-use-credit-cards-in-china"
   - label: "TravelChinaGuide foreign-card acceptance cross-check"
-    url: "https://www.travelchinaguide.com/"
+    url: "https://www.travelchinaguide.com/faq/when/money.htm"
 faq:
   - q: "Do I even need a credit card in China?"
     a: "Yes, but not as your daily payment plan. Use mobile payment first, keep cash as fallback, and treat physical cards as useful only in specific internationalized places."
@@ -44,11 +42,11 @@ Start with [Alipay](/money/alipay/), add [WeChat Pay](/money/wechat-pay/), and k
 
 ## Acceptance map
 
-| Card route or network | Where the brief supports trying it | Where not to rely on it |
+| Card route or network | Where it's worth trying | Where not to rely on it |
 | --- | --- | --- |
 | Foreign Visa or Mastercard at POS | Major international hotels, airports, duty-free shops, airport lounges, high-end malls, and international chains in first-tier cities such as Uniqlo, Zara, IKEA, McDonald's, KFC, and Starbucks. | Local restaurants, street stalls, wet markets, small shops, and taxis. |
-| Foreign American Express or JCB at POS | The brief verifies these networks for Shanghai Metro contactless card tap-to-pay. Broader merchant acceptance is not specified in the brief. | Do not generalize the Shanghai Metro exception to local restaurants, street stalls, wet markets, small shops, or taxis. |
-| Shanghai Metro physical contactless bank card | As of 2025-06, Shanghai Metro supports contactless Visa, Mastercard, American Express, and JCB bank cards across its full 500+ station network. As of 2026-03, the program had recorded 1.6 million+ rides. | This row is about physical contactless bank cards, not an unverified phone-wallet NFC claim. |
+| Foreign American Express or JCB at POS | Confirmed for Shanghai Metro contactless tap-to-pay. Merchant acceptance beyond that is spottier than Visa and Mastercard. | Do not generalize the Shanghai Metro exception to local restaurants, street stalls, wet markets, small shops, or taxis. |
+| Shanghai Metro physical contactless bank card | As of 2025-06, Shanghai Metro supports contactless Visa, Mastercard, American Express, and JCB bank cards across its full 500+ station network. As of 2026-03, the program had recorded 1.6 million+ rides. | This applies to physical contactless cards; phone-wallet tap at the gates is still unverified. |
 | Any foreign-issued card at a local-only terminal | Use it only as a test, not as a plan. | Many local terminals support UnionPay, Alipay, or WeChat rather than foreign-issued cards. |
 
 ## Before you fly checklist
@@ -76,7 +74,7 @@ Use cards at hotels where they work, but keep enough payment flexibility for a d
 
 ## Shanghai Metro card tap-to-pay
 
-Shanghai Metro is the clearest direct-card exception in this brief.
+Shanghai Metro is the clearest exception to the "your card won't work here" rule.
 
 As of 2025-06, foreign visitors can use physical contactless Visa, Mastercard, American Express, and JCB bank cards to tap through Shanghai Metro gates across the full 500+ station network. As of 2026-03, the service had recorded 1.6 million+ rides.
 
