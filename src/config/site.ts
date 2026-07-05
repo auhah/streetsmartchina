@@ -1,5 +1,7 @@
 export const SITE_URL = "https://streetsmartchina.com";
 
+export const GOOGLE_ANALYTICS_MEASUREMENT_ID = "G-LWTHST46EV";
+
 export const CLUSTERS = ["money", "connect", "visa", "trains"] as const;
 
 export type Cluster = (typeof CLUSTERS)[number];

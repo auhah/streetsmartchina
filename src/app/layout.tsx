@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 
 import { SiteShell } from "@/components/SiteShell";
-import { siteConfig } from "@/config/site";
+import {
+  GOOGLE_ANALYTICS_MEASUREMENT_ID,
+  siteConfig,
+} from "@/config/site";
 import { getContentPage } from "@/content/content-loader";
 import {
   siteFormatDetectionMetadata,
@@ -11,6 +14,15 @@ import {
 import "./globals.css";
 
 const homePage = getContentPage("home");
+const googleAnalyticsScriptSrc = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(
+  GOOGLE_ANALYTICS_MEASUREMENT_ID,
+)}`;
+const googleAnalyticsInlineScript = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){window.dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GOOGLE_ANALYTICS_MEASUREMENT_ID}');
+`.trim();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -47,6 +59,12 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script async src={googleAnalyticsScriptSrc} />
+        <script
+          dangerouslySetInnerHTML={{ __html: googleAnalyticsInlineScript }}
+        />
+      </head>
       <body>
         <SiteShell>{children}</SiteShell>
       </body>
