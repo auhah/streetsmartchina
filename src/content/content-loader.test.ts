@@ -29,11 +29,13 @@ describe("content loader", () => {
     expect(money?.sources.length).toBeGreaterThan(0);
   });
 
-  it("loads Alipay guide frontmatter and optional deep modules", () => {
+  it("loads money guide frontmatter and optional deep modules", () => {
     const guides = getAllGuides();
     const alipay = getGuideByRoute("money", "alipay");
+    const cash = getGuideByRoute("money", "cash");
+    const wechatPay = getGuideByRoute("money", "wechat-pay");
 
-    expect(guides).toHaveLength(1);
+    expect(guides).toHaveLength(3);
     expect(alipay).toMatchObject({
       cluster: "money",
       lastVerified: "2026-07-04",
@@ -44,6 +46,23 @@ describe("content loader", () => {
     expect(alipay?.faq.length).toBe(6);
     expect(alipay?.steps.length).toBe(7);
     expect(alipay?.troubleshooting.length).toBeGreaterThanOrEqual(6);
+    expect(cash).toMatchObject({
+      cluster: "money",
+      lastVerified: "2026-07-04",
+      path: "/money/cash/",
+      slug: "cash",
+    });
+    expect(cash?.steps).toHaveLength(0);
+    expect(cash?.troubleshooting).toHaveLength(0);
+    expect(wechatPay).toMatchObject({
+      cluster: "money",
+      lastVerified: "2026-07-04",
+      path: "/money/wechat-pay/",
+      slug: "wechat-pay",
+    });
+    expect(wechatPay?.faq.length).toBeGreaterThanOrEqual(5);
+    expect(wechatPay?.steps.length).toBe(6);
+    expect(wechatPay?.troubleshooting.length).toBeGreaterThanOrEqual(5);
   });
 
   it("fails when required guide fields are missing", () => {
