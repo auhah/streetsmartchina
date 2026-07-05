@@ -39,8 +39,20 @@ export type TroubleshootingRow = {
   problem: string;
 };
 
+export type DecisionTreeItem = {
+  answer: string;
+  children: DecisionTreeItem[];
+  question: string;
+};
+
+export type DecisionTree = {
+  items: DecisionTreeItem[];
+  title: string;
+};
+
 export type GuideFrontmatter = {
   cluster: Cluster;
+  decisionTree: DecisionTree | null;
   description: string;
   faq: FaqItem[];
   h1: string;
@@ -302,6 +314,57 @@ function validateTroubleshooting(
   });
 }
 
+function validateDecisionTreeItems(
+  value: readonly unknown[],
+  source: string,
+): DecisionTreeItem[] {
+  return value.map((item, index) => {
+    if (!isRecord(item)) {
+      throw new Error(`${source}[${index}] must be an object`);
+    }
+
+    const children = validateDecisionTreeItems(
+      readOptionalArray(item, "children", `${source}[${index}]`),
+      `${source}[${index}].children`,
+    );
+
+    return {
+      answer: requireString(item, "answer", `${source}[${index}]`),
+      children,
+      question: requireString(item, "question", `${source}[${index}]`),
+    };
+  });
+}
+
+function validateDecisionTree(
+  record: Record<string, unknown>,
+  source: string,
+): DecisionTree | null {
+  const value = record.decisionTree;
+  if (value === undefined) {
+    return null;
+  }
+
+  if (!isRecord(value)) {
+    throw new Error(`${formatSource(source, "decisionTree")} must be an object`);
+  }
+
+  const treeSource = `${source}: frontmatter.decisionTree`;
+  const items = validateDecisionTreeItems(
+    requireArray(value, "items", treeSource),
+    `${treeSource}.items`,
+  );
+
+  if (items.length === 0) {
+    throw new Error(`${treeSource}.items must include at least one item`);
+  }
+
+  return {
+    items,
+    title: requireString(value, "title", treeSource),
+  };
+}
+
 function validateOptionalSources(
   record: Record<string, unknown>,
   source: string,
@@ -339,6 +402,7 @@ export function validateGuideFrontmatter(
 
   return {
     cluster,
+    decisionTree: validateDecisionTree(frontmatter, source),
     description: requireString(frontmatter, "description", source),
     faq: validateFaq(requireArray(frontmatter, "faq", source), source),
     h1: requireString(frontmatter, "h1", source),

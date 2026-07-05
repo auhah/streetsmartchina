@@ -426,6 +426,30 @@ p {
   list-style: none;
 }
 
+.decision-tree__list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.decision-tree__list .decision-tree__list {
+  margin-top: 12px;
+}
+
+.decision-tree__item {
+  padding-left: 4px;
+}
+
+.decision-tree__body {
+  display: grid;
+  gap: 6px;
+}
+
+.decision-tree__body p {
+  color: var(--muted);
+}
+
 .step-item {
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { DecisionTree } from "@/components/DecisionTree";
 import { FaqSection } from "@/components/FaqSection";
 import { LastVerifiedBadge } from "@/components/LastVerifiedBadge";
 import { MarkdownBody } from "@/components/MarkdownBody";
@@ -79,6 +80,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
         </header>
 
         <div className="guide-content">
+          <DecisionTree tree={guide.decisionTree} />
           <MarkdownBody markdown={guide.body} />
           <StepByStep steps={guide.steps} />
           <TroubleshootingTable rows={guide.troubleshooting} />

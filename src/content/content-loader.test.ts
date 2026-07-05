@@ -35,11 +35,13 @@ describe("content loader", () => {
     const applePay = getGuideByRoute("money", "apple-pay");
     const cards = getGuideByRoute("money", "cards");
     const cash = getGuideByRoute("money", "cash");
+    const esim = getGuideByRoute("connect", "esim");
+    const esimVsSim = getGuideByRoute("connect", "esim-vs-sim");
     const googleMaps = getGuideByRoute("connect", "google-maps");
     const mapsApps = getGuideByRoute("connect", "maps-apps");
     const wechatPay = getGuideByRoute("money", "wechat-pay");
 
-    expect(guides).toHaveLength(7);
+    expect(guides).toHaveLength(9);
     expect(alipay).toMatchObject({
       cluster: "money",
       lastVerified: "2026-07-04",
@@ -78,6 +80,23 @@ describe("content loader", () => {
     });
     expect(cash?.steps).toHaveLength(0);
     expect(cash?.troubleshooting).toHaveLength(0);
+    expect(esim).toMatchObject({
+      cluster: "connect",
+      lastVerified: "2026-07-04",
+      path: "/connect/esim/",
+      slug: "esim",
+    });
+    expect(esim?.decisionTree).toBeNull();
+    expect(esim?.faq.length).toBe(5);
+    expect(esimVsSim).toMatchObject({
+      cluster: "connect",
+      lastVerified: "2026-07-04",
+      path: "/connect/esim-vs-sim/",
+      slug: "esim-vs-sim",
+    });
+    expect(esimVsSim?.decisionTree?.items).toHaveLength(2);
+    expect(esimVsSim?.decisionTree?.items[0]?.children).toHaveLength(2);
+    expect(esimVsSim?.faq.length).toBe(4);
     expect(googleMaps).toMatchObject({
       cluster: "connect",
       lastVerified: "2026-07-04",
